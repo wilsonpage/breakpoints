@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>title</title>
+</head>
+<body>
+<script type="text/javascript" src="../lib/breakpoints.js"></script>
+<script>
+
+	/**
+	 * Listener
+	 */
+
+	var listener = new Breakpoints.Listener({
+		'small': 400,
+		'medium': 800,
+		'large': 99999
+	});
+
+	listener.on('change', function(current, previous) {
+		console.log('Breakpoint - ', 'current:', current, 'previous:', previous);
+	});
+
+	/**
+	 * Cutom Relay
+	 */
+
+	function onSmallMediumBreakpoint() {
+		console.log('Breakpoint - Small/Medium');
+	}
+
+	function onLargeBreakpoint() {
+		console.log('Breakpoint - Large');
+	}
+
+	var relay = new listener.Relay({
+		'small medium': onSmallBreakpoint,
+		'large': onLargeBreakpoint
+	});
+
+</script>
+</body>
+</html>

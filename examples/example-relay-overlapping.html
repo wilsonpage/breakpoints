@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>title</title>
+</head>
+<body>
+<script type="text/javascript" src="../lib/breakpoints.js"></script>
+<script>
+
+	var listener = new Breakpoints.Listener({
+		'small': 400,
+		'medium': 800,
+		'large': 99999
+	});
+
+	function onSmallMediumBreakpoint() {
+		console.log('onSmallMediumBreakpoint');
+	}
+
+	function onLargeBreakpoint() {
+		console.log('onLargeBreakpoint');
+	}
+
+	function onLargeMediumBreakpoint() {
+		console.log('onLargeMediumBreakpoint');
+	}
+
+	var relay = new listener.Relay({
+		'small medium': onSmallMediumBreakpoint,
+		'large': onLargeBreakpoint,
+		'large medium': onLargeMediumBreakpoint
+	});
+
+</script>
+</body>
+</html>
