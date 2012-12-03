@@ -18,10 +18,6 @@
 		'large': 99999
 	});
 
-	listener.on('change', function(current, previous) {
-		console.log('Breakpoint - ', 'current:', current, 'previous:', previous);
-	});
-
 	/**
 	 * Cutom Relay
 	 */
@@ -35,7 +31,7 @@
 	}
 
 	var relay = new listener.Relay({
-		'small medium': onSmallBreakpoint,
+		'small medium': onSmallMediumBreakpoint,
 		'large': onLargeBreakpoint
 	});
 
